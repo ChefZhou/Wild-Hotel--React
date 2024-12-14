@@ -1,0 +1,14 @@
+{
+  "React Functional Component": {
+    "prefix": "rfc",
+    "body": [
+      "function ${1:${TM_FILENAME_BASE}}() {",
+      "  return (",
+      "    <div></div>",
+      "  );",
+      "};",
+      "export default ${1:${TM_FILENAME_BASE}};"
+    ],
+    "description": "Create a React functional component with the file name"
+  }
+}

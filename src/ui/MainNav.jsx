@@ -65,7 +65,7 @@ function MainNav() {
         <li>
           <StyledNavLink to="/bookings">
             <HiOutlineCalendarDays />
-            <span>訂房</span>
+            <span>訂單</span>
           </StyledNavLink>
         </li>
         <li>

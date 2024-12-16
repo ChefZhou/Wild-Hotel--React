@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from "react";
 import { createPortal } from "react-dom";
 import { HiEllipsisVertical } from "react-icons/hi2";
 import styled from "styled-components";
-import useOutsideClick from "../hooks/useOutsideClick";
+import { useOutsideClick } from "../hooks/useOutsideClick";
 
 const Menu = styled.div`
   display: flex;
@@ -31,9 +31,11 @@ const StyledToggle = styled.button`
 
 const StyledList = styled.ul`
   position: fixed;
+
   background-color: var(--color-grey-0);
   box-shadow: var(--shadow-md);
   border-radius: var(--border-radius-md);
+
   right: ${(props) => props.position.x}px;
   top: ${(props) => props.position.y}px;
 `;
@@ -46,6 +48,7 @@ const StyledButton = styled.button`
   padding: 1.2rem 2.4rem;
   font-size: 1.4rem;
   transition: all 0.2s;
+
   display: flex;
   align-items: center;
   gap: 1.6rem;

@@ -46,10 +46,10 @@ function BookingDetail() {
     <>
       <Row type="horizontal">
         <HeadingGroup>
-          <Heading as="h1">Booking #{bookingId}</Heading>
+          <Heading as="h1">訂單 #{bookingId}</Heading>
           <Tag type={statusToTagName[status]}>{status.replace("-", " ")}</Tag>
         </HeadingGroup>
-        <ButtonText onClick={moveBack}>&larr; Back</ButtonText>
+        <ButtonText onClick={moveBack}>&larr; 返回</ButtonText>
       </Row>
 
       <BookingDataBox booking={booking} />
@@ -73,12 +73,12 @@ function BookingDetail() {
 
         <Modal>
           <Modal.Open opens="delete">
-            <Button variation="danger">Delete booking</Button>
+            <Button variation="danger">刪除訂單</Button>
           </Modal.Open>
 
           <Modal.Window name="delete">
             <ConfirmDelete
-              resourceName="booking"
+              resourceName="訂單"
               disabled={isDeleting}
               onConfirm={() =>
                 deleteBooking(bookingId, {
@@ -90,7 +90,7 @@ function BookingDetail() {
         </Modal>
 
         <Button variation="secondary" onClick={moveBack}>
-          上一頁
+          返回
         </Button>
       </ButtonGroup>
     </>

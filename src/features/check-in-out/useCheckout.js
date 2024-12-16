@@ -12,11 +12,11 @@ export function useCheckout() {
       }),
 
     onSuccess: (data) => {
-      toast.success(`Booking #${data.id} successfully checked out`);
+      toast.success(`Booking #${data.id} 結帳成功`);
       queryClient.invalidateQueries({ active: true });
     },
 
-    onError: () => toast.error("There was an error while checking out"),
+    onError: () => toast.error("結帳時發生錯誤"),
   });
 
   return { checkout, isCheckingOut };

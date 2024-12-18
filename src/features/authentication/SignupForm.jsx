@@ -49,14 +49,14 @@ function SignupForm() {
         />
       </FormRow>
 
-      <FormRow label="密碼(最少4碼)" error={errors.password?.message}>
+      <FormRow label="密碼(最少6碼)" error={errors.password?.message}>
         <Input
           type="password"
           id="password"
           disabled={isLoading}
           {...register("password", {
             required: "請再次輸入密碼",
-            minLength: { value: 4, message: "密碼至少4碼" },
+            minLength: { value: 6, message: "密碼至少6碼" },
           })}
           autoComplete="new-password"
         />

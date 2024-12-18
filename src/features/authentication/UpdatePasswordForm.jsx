@@ -1,16 +1,17 @@
 import { useForm } from "react-hook-form";
+import { useUpdateUser } from "./useUpdateUser";
 import Button from "../../ui/Button";
 import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
-
-import { useUpdateUser } from "./useUpdateUser";
+import { useUser } from "./useUser";
 
 function UpdatePasswordForm() {
   const { register, handleSubmit, formState, getValues, reset } = useForm();
   const { errors } = formState;
 
   const { updateUser, isUpdating } = useUpdateUser();
+  const { user } = useUser();
 
   function onSubmit({ password }) {
     updateUser({ password }, { onSuccess: reset });
@@ -18,46 +19,48 @@ function UpdatePasswordForm() {
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <FormRow
-        label="Password (min 8 characters)"
-        error={errors?.password?.message}
-      >
+      <Input
+        type="text"
+        id="username"
+        value={user.email}
+        autoComplete="username"
+        style={{ display: "none" }}
+        readOnly
+      />
+
+      <FormRow label="新密碼(最少6個字元)" error={errors?.password?.message}>
         <Input
           type="password"
           id="password"
-          autoComplete="current-password"
+          autoComplete="new-password"
           disabled={isUpdating}
           {...register("password", {
-            required: "This field is required",
+            required: "這裡是必填欄位",
             minLength: {
-              value: 8,
-              message: "Password needs a minimum of 8 characters",
+              value: 6,
+              message: "密碼至少要有6個字元",
             },
           })}
         />
       </FormRow>
 
-      <FormRow
-        label="Confirm password"
-        error={errors?.passwordConfirm?.message}
-      >
+      <FormRow label="確認新密碼" error={errors?.passwordConfirm?.message}>
         <Input
           type="password"
-          autoComplete="new-password"
           id="passwordConfirm"
+          autoComplete="new-password"
           disabled={isUpdating}
           {...register("passwordConfirm", {
-            required: "This field is required",
-            validate: (value) =>
-              getValues().password === value || "Passwords need to match",
+            required: "這裡是必填欄位",
+            validate: (value) => value === getValues().password || "密碼不匹配",
           })}
         />
       </FormRow>
+
       <FormRow>
-        <Button onClick={reset} type="reset" variation="secondary">
-          Cancel
+        <Button type="submit" disabled={isUpdating}>
+          {isUpdating ? "更新中..." : "更新密碼"}
         </Button>
-        <Button disabled={isUpdating}>Update password</Button>
       </FormRow>
     </Form>
   );

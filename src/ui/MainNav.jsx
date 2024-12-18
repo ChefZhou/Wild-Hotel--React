@@ -77,7 +77,7 @@ function MainNav() {
         <li>
           <StyledNavLink to="/users">
             <HiOutlineUsers />
-            <span>使用者介面</span>
+            <span>創建新用戶</span>
           </StyledNavLink>
         </li>
         <li>

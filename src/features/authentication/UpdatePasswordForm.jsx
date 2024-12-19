@@ -17,6 +17,10 @@ function UpdatePasswordForm() {
     updateUser({ password }, { onSuccess: reset });
   }
 
+  function handleCancel() {
+    reset();
+  }
+
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Input
@@ -56,10 +60,17 @@ function UpdatePasswordForm() {
           })}
         />
       </FormRow>
-
       <FormRow>
+        <Button
+          type="reset"
+          variation="secondary"
+          disabled={isUpdating}
+          onClick={handleCancel}
+        >
+          重置
+        </Button>
         <Button type="submit" disabled={isUpdating}>
-          {isUpdating ? "更新中..." : "更新密碼"}
+          確認更新
         </Button>
       </FormRow>
     </Form>

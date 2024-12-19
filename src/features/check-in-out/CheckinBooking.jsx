@@ -69,7 +69,7 @@ function CheckinBooking() {
   return (
     <>
       <Row type="horizontal">
-        <Heading as="h1">入住訂單#{bookingId}</Heading>
+        <Heading as="h1">入住訂單 #{bookingId}</Heading>
         <ButtonText onClick={moveBack}>&larr; 返回</ButtonText>
       </Row>
 
@@ -85,7 +85,7 @@ function CheckinBooking() {
             }}
             id="breakfast"
           >
-            是否要加購早餐？總價為{formatCurrency(optionalBreakfastPrice)}?
+            想要添加早餐嗎？價格為 {formatCurrency(optionalBreakfastPrice)}
           </Checkbox>
         </Box>
       )}
@@ -97,7 +97,7 @@ function CheckinBooking() {
           disabled={confirmPaid || isCheckingIn}
           id="confirm"
         >
-          我確認{guests.fullName}已支付總金額{" "}
+          我確認 {guests.fullName} 已支付總金額{" "}
           {!addBreakfast
             ? formatCurrency(totalPrice)
             : `${formatCurrency(
@@ -110,7 +110,7 @@ function CheckinBooking() {
 
       <ButtonGroup>
         <Button onClick={handleCheckin} disabled={!confirmPaid || isCheckingIn}>
-          入住訂單#{bookingId}
+          入住訂單 #{bookingId}
         </Button>
         <Button variation="secondary" onClick={moveBack}>
           返回

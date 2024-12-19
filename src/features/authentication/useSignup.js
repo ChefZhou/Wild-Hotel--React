@@ -14,5 +14,5 @@ export function useSignup() {
     },
   });
 
-  return { signup, isLoading }; // 返回一個對象
+  return { signup, isLoading };
 }

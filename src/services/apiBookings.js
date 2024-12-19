@@ -10,10 +10,8 @@ export async function getBookings({ filter, sortBy, page }) {
       { count: "exact" }
     );
 
-  // FILTER
   if (filter) query = query[filter.method || "eq"](filter.field, filter.value);
 
-  // SORT
   if (sortBy)
     query = query.order(sortBy.field, {
       ascending: sortBy.direction === "asc",
@@ -68,7 +66,6 @@ export async function getBookingsAfterDate(date) {
 export async function getStaysAfterDate(date) {
   const { data, error } = await supabase
     .from("bookings")
-    // .select('*')
     .select("*, guests(fullName)")
     .gte("startDate", date)
     .lte("startDate", getToday());

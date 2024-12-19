@@ -16,12 +16,12 @@ export function useCheckin() {
       }),
 
     onSuccess: (data) => {
-      toast.success(`Booking #${data.id} 成功入住`);
+      toast.success(`訂單 #${data.id} 入住成功`);
       queryClient.invalidateQueries({ active: true });
       navigate("/");
     },
 
-    onError: () => toast.error("入住時發生錯誤"),
+    onError: () => toast.error("訂單發生錯誤"),
   });
 
   return { checkin, isCheckingIn };

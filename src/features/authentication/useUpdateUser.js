@@ -8,7 +8,7 @@ export function useUpdateUser() {
   const { mutate: updateUser, isLoading: isUpdating } = useMutation({
     mutationFn: updateCurrentUser,
     onSuccess: (user) => {
-      queryClient.setQueryData(["user"], user); // 修正查詢鍵
+      queryClient.setQueryData(["user"], user);
       toast.success("用戶資料更新成功！");
     },
     onError: (err) => {

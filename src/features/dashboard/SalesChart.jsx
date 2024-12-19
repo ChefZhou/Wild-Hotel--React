@@ -63,7 +63,7 @@ function SalesChart({ bookings, numDays }) {
         {format(allDates.at(-1), "MMM dd yyyy")}{" "}
       </Heading>
 
-      <ResponsiveContainer height={300} width="100%">
+      <ResponsiveContainer height={500} width="100%">
         <AreaChart data={data}>
           <XAxis
             dataKey="label"
@@ -71,7 +71,7 @@ function SalesChart({ bookings, numDays }) {
             tickLine={{ stroke: colors.text }}
           />
           <YAxis
-            unit="NTD"
+            unit="$"
             tick={{ fill: colors.text }}
             tickLine={{ stroke: colors.text }}
           />
@@ -84,7 +84,7 @@ function SalesChart({ bookings, numDays }) {
             fill={colors.totalSales.fill}
             strokeWidth={2}
             name="總銷售額"
-            unit="NTD"
+            unit="$"
           />
           <Area
             dataKey="extrasSales"
@@ -93,7 +93,7 @@ function SalesChart({ bookings, numDays }) {
             fill={colors.extrasSales.fill}
             strokeWidth={2}
             name="額外銷售額"
-            unit="NTD"
+            unit="$"
           />
         </AreaChart>
       </ResponsiveContainer>
